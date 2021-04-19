@@ -5,15 +5,30 @@
 <title>BOOKING</title>
 </head>
 <body>
-<center>
-<h1>BOOKING</h1>
-<form>
-<lable>JOURNEY DATE : </lable>
-<input type="date" name="journeydate" min="2021-04-22" max="2021-04-26" required/><br/><br/>
-<lable>TIME : </lable>
-<input type="time" name="pickuptime" required/><br/><br/>
-<button>SUBMIT</button>
-</form>
-</center>
+	<center>
+	<h1>BOOKING</h1>
+		<form method=POST>
+			<lable>JOURNEY DATE : </lable>
+			<input type="date" name="journeydate" min="2021-04-22" max="2021-04-26" required/><br/><br/>
+			<lable>TIME : </lable>
+			<input type="time" name="pickuptime" required/><br/><br/>
+			<lable>GST : </lable>
+			<input type="text" name="gst" value="10" readonly/><br/><br/>
+				<input type="checkbox" name="seniorcitizen"/>
+				<lable>SENIOR CITIZEN</lable><br/><br/>
+				<lable>GENDER : </lable>
+				<input type="radio" name="female" value="f"/>
+				<lable>FEMALE</lable>
+				<input type="radio" name="male" value="m"/>
+				<lable>MALE</lable><br/><br/>
+				<lable><b>INSTRUCTIONS</b></lable>
+				<ul>
+				<li>MUST WEAR  MASK</li>
+				<li>DO NOT EAT FOOD INSIDE THE CAB</li>
+				</ul>
+				<lable><b><I>SUCESSFULLY BOOKED...THANK YOU!!!</I></b></lable><br/><br/>
+		<button>SUBMIT</button>
+		</form>
+	</center>
 </body>
 </html>
