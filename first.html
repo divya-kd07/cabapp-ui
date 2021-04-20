@@ -5,18 +5,44 @@
 <title>first page</title>
 </head>
 <body>
+
 <center>
 <h1>LOGIN PAGE</h1><br/><br/>
-	<form>
+	<form onsubmit="login()">
 		<label for="name">NAME:</label>
-		<input type="text" name="name" id="name" placeholder="Enter Name" required ><br/><br/>
-		<label for="CollegeName"> COLLEGE NAME:</label>
-		<input type="text" name="CollegeName" id="CollegeName" ><br/></br>
-		<label for="age">AGE:</label>
-		<input type="text" name="age" id="age" ><br/><br/>
+		<input type="text" name="name" id="nme" placeholder="Enter Your Name" required autofocus><br/><br/>
+		<label for="MobileNumber"> MOBILE NUMBER:</label>
+		<input type="text" name="MobileNumber" id="MobNo" placeholder="Enter your Mobile Number"><br/><br/>
 		<label for="password">PASSWORD:</label>
-		<input type="password" name="password" id="password" required ><br/><br/>
-		<button>SUBMIT</button>
-	</form></center>
+		<input type="password" name="password" id="pwd" placeholder="Enter password" required ><br/><br/>
+		<button>SUBMIT</button><br/><br/>
+		<button type="reset">RESET</button>
+	</form>
+</center>
+<script>
+	function login()
+	{
+		event.preventDefault();
+		let username=document.querySelector("#nme").value;
+		let mobileNumber=document.querySelector("#MobNo").value;
+		let password=document.querySelector("#pwd").value;
+		if(username=="DIVYA" && username.length>3)
+		{
+			if(mobileNumber.length==10 && password.length>=3)
+			{
+			alert("LOGIN SUCCESSFULLY!!!....WELCOME "+username);
+			}
+			else{
+				alert("MOBILE NUMBER OR PASSWORD ARE INVALID");	
+			}
+			
+		}
+		
+	else{
+			alert("INVALID USERNAME CREDENTIALS");
+		}
+	}
+	
+</script>
 </body>
 </html>
