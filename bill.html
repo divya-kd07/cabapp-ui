@@ -5,19 +5,48 @@
 <title>BILLING</title>
 </head>
 	<body>
-	<form action="booking.html">
+	<form onsubmit="bill()">
 		<center>
 		    <h1>BILL ESTIMATOR</h1>
 			<label>SELECT CAB TYPE:</label><br/><br/>
-			<select name="cabtype">
+			<select name="cabtype" id="cabtype"required>
 			<option disabled>---SELECT CAB TYPE---</option>
-			<option value="Micro">MICRO</option>
-			<option value="Mini">Mini</option>
-			<option value="prime">prime</option>
+			<option value="Micro">1.MICRO</option>
+			<option value="Mini">2.MINI</option>
+			<option value="Prime">3.PRIME</option>
 			</select><br/><br/>
 			<input type="number" name="kilometer" id="kilometer" placeholder="NUMBER OF KILOMETER"><br/><br/><br/><br/>
 			<button>SUBMIT</button><br/>
-			<br/><lable>YOUR BILL AMOUNT IS : 500Rs/-</lable>
-		</center></form>
+		</center>
+	</form>
+	<script>
+	function bill()
+	{
+		event.preventDefault();
+		alert("hi");
+		let choice=document.querySelector("#cabtype").value;
+		let kilometer=document.querySelector("#kilometer").value;
+		let billAmount=0;
+		switch(choice)
+		{
+		case "Micro":
+			billAmount=10*kilometer;
+			break;
+		
+		case "Mini":
+			billAmount=15*kilometer;
+			break;
+		
+		
+		case "Price":
+			billAmount=20*kilometer;
+			break;
+		
+		default:break;
+		}
+		alert("YOUR BILL AMOUNT IS : "+billAmount+" Rs/-");
+		
+	}
+	</script>
 	</body>
 </html>
