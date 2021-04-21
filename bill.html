@@ -16,7 +16,8 @@
 			<option value="Prime">3.PRIME</option>
 			</select><br/><br/>
 			<input type="number" name="kilometer" id="kilometer" placeholder="NUMBER OF KILOMETER"><br/><br/><br/><br/>
-			<button>SUBMIT</button><br/>
+			<button>SUBMIT</button><br/><br/>
+			<a href="booking.html" target="_blank">NEXT</a>
 		</center>
 	</form>
 	<script>
@@ -44,7 +45,8 @@
 		
 		default:break;
 		}
-		alert("YOUR BILL AMOUNT IS : "+billAmount+" Rs/-");
+		let Amount=billAmount+(billAmount*0.07);
+		alert("YOUR BILL AMOUNT IS : "+Amount+" Rs/-");
 		
 	}
 	</script>
