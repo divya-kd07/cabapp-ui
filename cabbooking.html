@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>booking</title>
+	</head>
+<body>
+	<center>
+	<h1>BOOKING</h1>
+	<form onsubmit="bill()">
+		<center>
+		    <h1>BILL ESTIMATOR</h1>
+			<label>SELECT CAB TYPE:</label><br/><br/>
+			<select name="cabtype" id="cabtype"required>
+			<option disabled>---SELECT CAB TYPE---</option>
+			<option value="Micro">1.MICRO</option>
+			<option value="Mini">2.MINI</option>
+			<option value="Prime">3.PRIME</option>
+			</select><br/><br/>
+			<input type="number" name="kilometer" id="kilometer" placeholder="NUMBER OF KILOMETER"><br/><br/><br/><br/>
+		    <lable>JOURNEY DATE : </lable>
+			<input type="date" name="journeydate"  required/><br/><br/>
+			<lable>TIME : </lable>
+			<input type="time" name="pickuptime" id="time"  value="14:45:20" required/><br/><br/>
+			<lable>GENDER : </lable>
+				<input type="radio" name="female" id="f"/>
+				<lable>FEMALE</lable>
+				<input type="radio" name="male" id="m"/>
+				<lable>MALE</lable><br/><br/>
+			    <input type="checkbox" name="seniorcitizen" id="senior"/>
+				<lable>SENIOR CITIZEN : </lable><br/><br/>
+				<lable><b>INSTRUCTIONS</b></lable>
+				<ul>
+				<li>MUST WEAR  MASK</li>
+				<li>DO NOT EAT FOOD INSIDE THE CAB</li>
+				</ul>
+				<lable><b><I>SUCESSFULLY BOOKED...THANK YOU!!!</I></b></lable><br/><br/>
+			     <button>SUBMIT</button>
+		</form>
+	</center>
+<script>
+function bill()
+{
+	event.preventDefault();
+	let choice=document.querySelector("#cabtype").value;
+	let kilometer=document.querySelector("#kilometer").value;
+	let billAmount=0;
+	switch(choice)
+	{
+	case "Micro":
+		billAmount=10*kilometer;
+		break;
+	
+	case "Mini":
+		billAmount=15*kilometer;
+		break;
+	
+	
+	case "Prime":
+		billAmount=20*kilometer;
+		break;
+	
+	default:break;
+	}
+	let gAmount=billAmount+(billAmount*0.07);
+	//alert("YOUR BILL AMOUNT IS : "+gAmount+" Rs/-");
+	
+		let pickTimeString=document.querySelector("#time").value;
+		let pickTimeInt= pickTimeString.substr(0,2);
+		let seniorCitizen=document.querySelector("#senior");
+		if(pickTimeInt >= 17 && pickTimeInt <= 19) 
+		{
+			let peek=gAmount+(gAmount*0.0125); 
+			alert("IT IS A PEEK HOUR..SO 1.25% PER KM PRICE");
+				if(seniorCitizen.checked==true)
+				{
+					let finalAmount= peek*0.5;//if peek hour and above 60 age 
+			    	alert("Total Fare amount with peek hour charges and senior citizen discount : "+finalAmount.toFixed(2)+" Rs/-");
+			    	alert("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");
+				}
+			    //It provides some discount prices..
+				else{
+					alert("Total Fare with peek hour charges : "+peek.toFixed(2)+" Rs/-");
+				}
+       }
+		else 
+		{
+			alert("IT IS NOT A PEAK HOUR");
+			if(seniorCitizen.checked==true)
+			{
+				let peek=gAmount+(gAmount*0.0125); 
+				let finalAmount= peek*0.5;//if peek hour and above 60 age 
+		    	alert("Total fare with Senior Citizen Discount and without Peek Hour Charges : "+gAmount.toFixed(2)+" Rs/-");
+		    	alert("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");
+			}
+		    //It provides some discount prices..
+			else{
+				alert("Total Fare : "+gAmount.toFixed(2)+" Rs/-");
+			}
+		}
+		
+	   alert("THANK YOU!!!...");
+}
+
+	</script>
+</body>
+</html>
+
