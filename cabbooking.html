@@ -4,7 +4,7 @@
 		<meta charset="ISO-8859-1">
 		<title>booking</title>
 	</head>
-<body>
+<body bgcolor="yellow">
 	<center>
 	<h1>BOOKING</h1>
 	<form onsubmit="bill()">
@@ -48,37 +48,37 @@ function bill()
 	switch(choice)
 	{
 	case "Micro":
-		billAmount=10*kilometer;
+		billAmount=10*kilometer;//calculating the bill amount if micro exists
 		break;
 	
 	case "Mini":
-		billAmount=15*kilometer;
+		billAmount=15*kilometer;//calculating the bill amount if mini exists
 		break;
 	
 	
 	case "Prime":
-		billAmount=20*kilometer;
+		billAmount=20*kilometer;//calculating the bill amount if prime exists
 		break;
 	
 	default:break;
 	}
 	let gAmount=billAmount+(billAmount*0.07);
-	//alert("YOUR BILL AMOUNT IS : "+gAmount+" Rs/-");
+	
 	
 		let pickTimeString=document.querySelector("#time").value;
 		let pickTimeInt= pickTimeString.substr(0,2);
 		let seniorCitizen=document.querySelector("#senior");
 		if(pickTimeInt >= 17 && pickTimeInt <= 19) 
 		{
-			let peek=gAmount+(gAmount*0.0125); 
+			let peek=gAmount+(gAmount*0.0125); //calculating the peek hour amount
 			alert("IT IS A PEEK HOUR..SO 1.25% PER KM PRICE");
 				if(seniorCitizen.checked==true)
 				{
 					let finalAmount= peek*0.5;//if peek hour and above 60 age 
 			    	alert("Total Fare amount with peek hour charges and senior citizen discount : "+finalAmount.toFixed(2)+" Rs/-");
-			    	alert("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");
+			    	alert("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");//It provides some discount prices..
 				}
-			    //It provides some discount prices..
+			    
 				else{
 					alert("Total Fare with peek hour charges : "+peek.toFixed(2)+" Rs/-");
 				}
@@ -91,9 +91,9 @@ function bill()
 				let peek=gAmount+(gAmount*0.0125); 
 				let finalAmount= peek*0.5;//if peek hour and above 60 age 
 		    	alert("Total fare with Senior Citizen Discount and without Peek Hour Charges : "+gAmount.toFixed(2)+" Rs/-");
-		    	alert("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");
+		    	alert("YOUR AGE IS GREATER THAN 60...SO YOU HAVE 50% OFFER");//It provides some discount prices..
 			}
-		    //It provides some discount prices..
+		    
 			else{
 				alert("Total Fare : "+gAmount.toFixed(2)+" Rs/-");
 			}
